@@ -15,7 +15,7 @@ public class HelloResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public List<String> hello() {
-        //return "Hello RESTEasy";
-        return list;
+        return "Hello RESTEasy";
+        //return list;
     }
 }
