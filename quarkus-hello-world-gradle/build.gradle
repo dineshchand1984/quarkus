@@ -15,7 +15,7 @@ dependencies {
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
     testImplementation 'io.quarkus:quarkus-jacoco:2.7.3.Final'
-    testImplementation 'io.quarkus:quarkus-bootstrap-gradle-resolver'
+    testImplementation 'io.quarkus:quarkus-bootstrap-maven-resolver'
 }
 
 group 'com.mkyong'
