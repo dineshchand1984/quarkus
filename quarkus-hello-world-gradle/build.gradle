@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'io.quarkus'
+    id 'org.sonarqube' version '3.3'
 }
 
 repositories {
@@ -10,7 +11,7 @@ repositories {
 
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-    implementation 'io.quarkus:quarkus-jacoco:2.7.3.Final'
+    implementation 'io.quarkus:quarkus-jacoco'
     implementation 'io.quarkus:quarkus-arc'
     implementation 'io.quarkus:quarkus-resteasy'
     testImplementation 'io.quarkus:quarkus-junit5'
@@ -32,4 +33,12 @@ compileJava {
 
 compileTestJava {
     options.encoding = 'UTF-8'
+}
+
+def allTestCoverageFile = "$buildDir/jacoco-report/jacoco.xml"
+
+sonarqube {
+  properties {
+	property 'sonar.coverage.jacoco.xmlReportPaths', allTestCoverageFile
+  }
 }
